@@ -1,10 +1,9 @@
-const header = [
+const header = 
 {
     name: "Name",
     email: "Email",
     balance: "Balance"
-}
-];
+};
 const users = [
   {
     _id: "5d220b10e8265cc978e2586b",
@@ -49,36 +48,54 @@ const users = [
 
 // Реалізувати функцію, яка повертає масив користувачів, використовуючи параметр з ключами.
 
-////////////Остаточно максимально заплуталась//////////////
 
-// function getUsersData(users, header) {
-//     const newHeader = Object.keys(header[0]) /// keys name, email, balance
-//     let name = newHeader.name;
-//     let email = newHeader.email;
-//     let balance = newHeader.balance;
-//     for(let i = 0; i < users.length; i++){
-//         if(Object.keys(users[i]) === name || 
-//         Object.keys(users[i]) === email ||
-//          Object.keys(users[i]) === balance){
-//             return users[i];
+// function getUsersData(users, keys) {
+//     let usersKeys = Object.keys(users[0])
+//     const match =  usersKeys.filter(i => keys.includes(i))
+//     for(let i = 0; i< users.length; i++){
+//         if(usersKeys[i] = match[i]){
+//             let a = usersKeys[i];
+//             console.log(users.a);
 //         }
 //     }
 // }
-// console.log(getUsersData(users, header));
-// console.log(getUsersData(users, Object.keys(header)));
+function getUserData(user, keys) {
+    const transformedUser = {};
+    for (let i = 0; i < keys.length; i += 1) {
+      const key = keys[i];
+      transformedUser[key] = user[key];
+    }
+    return transformedUser;
+  }
+  
+  function getUsersData(users, keys) {
+    return users.map((user) => getUserData(user, keys));
+  }
+console.log(getUsersData(users, Object.keys(header)));
 
-// function checkAvailability(arr, val) {
-//   return arr.some(function(arrVal) {
-//     return val === arrVal;
-//   });
+
+
+// function getUsersData(users, keys) {
+//     let usersKeys = Object.keys(users[0])
+//     const match =  usersKeys.filter(i => keys.includes(i))
+//     let entries = Object.entries(user);
+//     for(let i = 0; i< users.length; i++){
+//         if(usersKeys[i] = match[i]){
+//             entries.map( ([match, val]) => console.log(match[i], val));
+//         }
+//     }
 // }
-// checkAvailability(users, 'male'); 
+// console.log(getUsersData(users, Object.keys(header)));
 
 /* [{
         name: "Buckner Osborne",
         email: "bucknerosborne@empirica.com",
         balance: 2853.33
  }, …] */
+
+
+
+
 
 
 // Реалізувати функцію, яка повертає загальний баланс користувачів.
